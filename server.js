@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 const express = require('express');
 const routes = require('./routes');
 const db = require('./db');
@@ -21,3 +23,4 @@ app.get('/*', (req, res) => {
    })
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
+>>>>>>> 08bcd7d3bad5b2ad86c4ab5520cf05211523a261
