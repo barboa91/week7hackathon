@@ -18,14 +18,8 @@
   },
   "homepage": "https://github.com/barboa91/week7hackathon#readme",
   "dependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
     "axios": "^0.26.1",
-=======
->>>>>>> 08bcd7d3bad5b2ad86c4ab5520cf05211523a261
-=======
     "dotenv": "^16.0.0",
->>>>>>> b260af68095cff8f9865fd6d3eccf7025817e003
     "express": "^4.17.3",
     "mongoose": "^6.2.10"
   }
