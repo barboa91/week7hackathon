@@ -1,0 +1,55 @@
+/******************************/
+/*************Nav*************/
+/******************************/
+.navBar {
+  display: flex;
+
+  justify-content: flex-end;
+}
+
+.navBar ul{
+  list-style-type: none;
+  width: 50%;
+  display: flex;
+  
+  align-items: space-between;
+  justify-content: flex-end;
+
+}
+
+.navBar ul li {
+  margin: 0 15px;
+}
+
+
+/******************************/
+/*************Content*************/
+/******************************/
+
+
+.banner {
+  background-image: url('https://static.wixstatic.com/media/ee7f6b_c25e61eecc6b4abaaf3f082ba8888757~mv2_d_3946_2960_s_4_2.jpg/v1/fill/w_1523,h_500,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/ee7f6b_c25e61eecc6b4abaaf3f082ba8888757~mv2_d_3946_2960_s_4_2.jpg');
+  background-size: cover;
+  width: 80%;
+  height: 300px;
+  margin: 0 auto;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner h3 {
+  font-size: 3em;
+  color: rgb(87, 85, 85);
+  
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+}
