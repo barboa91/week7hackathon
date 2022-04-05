@@ -7,6 +7,7 @@ const Post = new Schema(
         description:{ type : String, required: true},
         location:{ type : Object, required: true },
         likes:{ type : Number, required: false },
-        description:{ type : Object, required: false},
+        comments:{ type : Object, required: false},
     }
 )
+module.exports = Post
