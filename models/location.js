@@ -9,3 +9,5 @@ const Location = new Schema(
       pics:{ type: String, require: true}
     }
 )
+
+module.exports = Location
