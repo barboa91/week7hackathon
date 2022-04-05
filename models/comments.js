@@ -9,3 +9,5 @@ const Comment = new Schema(
     }
 
 )
+
+module.exports = Comment
