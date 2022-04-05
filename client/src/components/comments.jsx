@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const comment = () => {
-    const [comment, setComment]=
+    const [comment, setComment]= useState("");
 
 
     const onClickComment=() =>{
@@ -19,6 +19,7 @@ return(
     name='comment'
     placeholder='Comment Here'
     onChange={(v)=> setComment()} />
+    <button onClick={onClickComment}>Submit</button>
 
 </div>
 )
