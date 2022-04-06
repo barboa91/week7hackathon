@@ -74,7 +74,25 @@ const addComment = async (req, res) =>{
     } catch(error){
         return res.status(500).json({error:error.message})
     }
+
 }
+
+const likePost = async (req, res) => {
+    try {
+      const { id } = req.params
+      const post = await Post.findById(id)
+
+      post.likes += 1
+      post.save()
+
+      if (post) {
+        return res.status(200).json({ chef })
+      }
+      return res.status(404).send('post with the specified ID does not exists')
+    } catch (error) {
+      return res.status(500).send(error.message)
+    }
+  }
 
 module.exports = {
   getPostById,
@@ -82,5 +100,6 @@ module.exports = {
   getLocations,
   getComments,
   getCommentById,
-  addComment
+  addComment,
+  likePost
 }

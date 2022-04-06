@@ -14,6 +14,7 @@ router.get('/getcommentbyid/:id', controller.getCommentById)
 
 
 router.post('/postComment/:id',controller.addComment)
+router.post('/likePost/:id',controller.likePost)
 
 
 
