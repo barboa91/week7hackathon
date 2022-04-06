@@ -7,7 +7,7 @@ const initialState = {
 const PostReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POST:
-      return { ...state, movies: action.payload }
+      return { ...state, posts: action.payload }
     default:
       return { ...state }
   }
