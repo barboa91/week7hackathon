@@ -10,3 +10,25 @@ export const GetPosts = async () => {
     throw error
   }
 }
+
+export const GetComments = async () => {
+  try {
+    const res = await Client.get('/getComments')
+
+    console.log(res.data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const GetLocations = async () => {
+  try {
+    const res = await Client.get('/getLocations')
+
+    console.log(res.data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
