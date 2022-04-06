@@ -47,17 +47,50 @@
   
 }
 
+.mainContent {
+  
+}
+
 .postContainer {
   display: flex;
   flex-direction: column;
   
   align-items: center;
 
-  width: 60%;
+  width: 80%;
   height: 300px;
   margin: 0 auto;
 }
 
 .postContent {
   width: 100%;
+  height: 300px;
+  border: 1px black solid;
+
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 2fr;
 }
+
+.imgCont {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.imgCont img {
+  height: 100%;
+}
+
+.desCont {
+  grid-column: 2 / 3;
+  grid-row: 1/ 2;
+
+  padding:10px 30px;
+}
+
+.commCont {
+  grid-column: 2 / 3;
+  grid-row: 2/ 3;
+
+  padding:10px 30px;
+}
+
