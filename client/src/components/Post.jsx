@@ -68,7 +68,7 @@ const Post = (props) => {
             </p>
           </div>
           <div className="commCont">
-            <Comment />
+            <p>click to leave a comment</p>
             <span>{post.likes}</span>
             <LikeButton />
           </div>

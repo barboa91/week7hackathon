@@ -9,6 +9,7 @@ import {
 import { connect } from 'react-redux'
 import Comment from '../components/Comments'
 import LikeButton from '../components/LikesButton'
+import Client from '../services'
 
 const mapStateToProps = ({ postState }) => {
   return {
@@ -34,6 +35,14 @@ const PostDetail = (props) => {
     props.fetchLocations()
   }, [])
 
+  const onSubmit = async (comm) => {
+    const res = await Client.post(`/postComment/${id}`, comm)
+
+    props.fetchPosts()
+    props.fetchComments()
+    props.fetchLocations()
+  }
+
   return (
     <div>
       {props.postState.posts.map(
@@ -56,15 +65,15 @@ const PostDetail = (props) => {
                     )
                 )}
               </p>
-              <p>
+              <div>
                 {props.postState.comments.comments.map(
                   (comm) =>
                     post.comments.includes(comm._id) && (
-                      <span key={comm._id}>{comm.comment}</span>
+                      <p key={comm._id}>{comm.comment}</p>
                     )
                 )}
-              </p>
-              <Comment />
+              </div>
+              <Comment onSubmit={onSubmit} />
               <span>{post.likes}</span>
               <LikeButton />
             </div>
