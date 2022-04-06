@@ -10,6 +10,8 @@ router.get('/getPosts', controller.getPosts)
 router.get('/getLocations', controller.getLocations)
 router.get('/getComments',controller.getComments)
 
+router.post('/postComment/:id',controller.postComment)
+
 
 
 

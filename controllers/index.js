@@ -7,7 +7,7 @@ const getPostById = async (req, res) => {
         const { id } = req.params;
         const post = await Post.findById(id)
         if (post) {
-            return res.status(200).json({ chef });
+            return res.status(200).json({ post });
         }
         return res.status(404).send('post with the specified ID does not exists');
     } catch (error) {
@@ -39,7 +39,7 @@ const getCommentById = async (req, res) => {
         const { id } = req.params;
         const comment = await Comment.findById(id)
         if (comment) {
-            return res.status(200).json({ chef });
+            return res.status(200).json({ comment });
         }
         return res.status(404).send('comment with the specified ID does not exists');
     } catch (error) {
@@ -48,7 +48,7 @@ const getCommentById = async (req, res) => {
 }
 const getComments = async (req,res) =>{
     try{
-        const comment = await comment.find()
+        const comment = await Comment.find()
         return res.status(201).json({
             comment
         });
@@ -56,12 +56,23 @@ const getComments = async (req,res) =>{
         return res.status(500).json({error:error.message})
     }
 }
-
+const postComment = async (req, res) =>{
+    try{
+        const comment  = await new Comment(req.body)
+        await comment.save
+        return res.status(201).json({
+            comment
+        });
+    } catch(error){
+        return res.status(500).json({error:error.message})
+    }
+}
 
 module.exports = {
     getPostById,
     getPosts,
     getLocations,
-    getComments
+    getComments,
+    postComment
 
 }
