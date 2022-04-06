@@ -12,9 +12,15 @@ const Comment = (props) => {
       <h1>Leave a Comment</h1>
       <input
         type="text"
+        name="name"
+        placeholder="Name"
+        // onChange={() => setComment()}
+      />
+      <input
+        type="text"
         name="comment"
         placeholder="Comment Here"
-        onChange={() => setComment()}
+        // onChange={() => setComment()}
       />
       <button onClick={onClickComment}>Add</button>
     </div>

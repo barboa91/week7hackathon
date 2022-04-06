@@ -11,8 +11,6 @@ const Home = () => {
       </div>
       <div className="mainContent">
         <Post />
-        <Comments />
-        <LikeButton />
       </div>
     </div>
   )
