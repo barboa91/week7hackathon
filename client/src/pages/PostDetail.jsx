@@ -43,6 +43,12 @@ const PostDetail = (props) => {
     props.fetchLocations()
   }
 
+  const onClickLike = async () => {
+    const res = await Client.post(`/likePost/${id}`, {})
+
+    props.fetchPosts()
+  }
+
   return (
     <div>
       {props.postState.posts.map(
@@ -50,22 +56,23 @@ const PostDetail = (props) => {
           post._id === id && (
             <div>
               <img src={post.image} alt="poster" />
-              <p>{post.description}</p>
+              <p>Description: {post.description}</p>
               <p>
                 {props.postState.locations.locations.map(
                   (loc) =>
                     post.location.includes(loc._id) && (
                       <span key={loc._id}>
-                        {loc.name}
+                        Location Name: {loc.name}
                         <br></br>
-                        {loc.city}
+                        Location City: {loc.city}
                         <br></br>
-                        {loc.country}
+                        Location Country: {loc.country}
                       </span>
                     )
                 )}
               </p>
               <div>
+                <h3>Comments:</h3>
                 {props.postState.comments.comments.map(
                   (comm) =>
                     post.comments.includes(comm._id) && (
@@ -75,7 +82,7 @@ const PostDetail = (props) => {
               </div>
               <Comment onSubmit={onSubmit} />
               <span>{post.likes}</span>
-              <LikeButton />
+              <LikeButton onClickLike={onClickLike} />
             </div>
           )
       )}
