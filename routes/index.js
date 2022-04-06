@@ -11,4 +11,10 @@ router.get('/getLocations', controller.getLocations)
 router.get('/getComments', controller.getComments)
 router.get('/getcommentbyid/:id', controller.getCommentById)
 
+
+
+router.post('/postComment/:id',controller.addComment)
+
+
+
 module.exports = router
