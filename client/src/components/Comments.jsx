@@ -9,7 +9,7 @@ const Comment = (props) => {
 
   return (
     <div className="reviewComment">
-      <h1>Leave a Comment</h1>
+      <h6>Leave a Comment</h6>
       <input
         type="text"
         name="name"

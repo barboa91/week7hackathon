@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import {
   LoadComments,
@@ -30,20 +30,25 @@ const Post = (props) => {
     props.fetchLocations()
   }, [])
 
-  const testFunction = () => {
-    console.log('x')
+  let navigate = useNavigate()
+  const handleClick = (id) => {
+    console.log('clicked')
+
+    navigate(`/post/${id}`)
   }
 
-  console.log(props.postState.posts)
-  console.log(props.postState.locations.locations)
   return (
     <div className="postContainer">
       {props.postState.posts.map((post) => (
-        <div key={post._id} className="postContent">
-          <div>
+        <div
+          key={post._id}
+          className="postContent"
+          onClick={() => handleClick(post._id)}
+        >
+          <div className="imgCont">
             <img src={post.image} alt="" style={{ width: '200px' }} />
           </div>
-          <div>
+          <div className="desCont">
             <p>{post.description}</p>
             <p>
               {props.postState.locations.locations.map(
@@ -62,9 +67,9 @@ const Post = (props) => {
               )}
             </p>
           </div>
-          <div>
+          <div className="commCont">
             <Comment />
-            <p>{post.likes}</p>
+            <span>{post.likes}</span>
             <LikeButton />
           </div>
         </div>
