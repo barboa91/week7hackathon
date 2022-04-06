@@ -55,44 +55,43 @@ const getComments = async (req, res) => {
   }
 }
 
-const addComment = async (req, res) =>{
+const addComment = async (req, res) => {
+  console.log(req.body)
+
+  const { id } = req.params
+  try {
     console.log(req.body)
+    const comment = await new Comment(req.body)
+    await comment.save()
 
-    const { id } = req.params
-    try{
-        console.log(req.body)
-        const comment  = await new Comment(req.body)
-        await comment.save()
+    const post = await Post.findById(id)
+    post.comments.push(comment._id)
+    await post.save()
 
-        const post = await Post.findById(id)
-        post.comments.push(comment._id)
-        await post.save()
-
-        return res.status(201).json({
-            comment
-        });
-    } catch(error){
-        return res.status(500).json({error:error.message})
-    }
-
+    return res.status(201).json({
+      comment
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
 }
 
 const likePost = async (req, res) => {
-    try {
-      const { id } = req.params
-      const post = await Post.findById(id)
+  try {
+    const { id } = req.params
+    const post = await Post.findById(id)
 
-      post.likes += 1
-      post.save()
+    post.likes += 1
+    post.save()
 
-      if (post) {
-        return res.status(200).json({ chef })
-      }
-      return res.status(404).send('post with the specified ID does not exists')
-    } catch (error) {
-      return res.status(500).send(error.message)
+    if (post) {
+      return res.status(200).json({ post })
     }
+    return res.status(404).send('post with the specified ID does not exists')
+  } catch (error) {
+    return res.status(500).send(error.message)
   }
+}
 
 module.exports = {
   getPostById,

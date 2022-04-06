@@ -9,8 +9,6 @@ const Comment = (props) => {
     like: 0
   })
 
-  console.log(comment)
-
   return (
     <div className="reviewComment">
       <h6>Leave a Comment</h6>
