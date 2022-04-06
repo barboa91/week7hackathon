@@ -1,11 +1,15 @@
+import axios from 'axios'
+import Client from '../services'
 import { useState } from 'react'
 
 const Comment = (props) => {
-  const [comment, setComment] = useState('')
+  const [comment, setComment] = useState({
+    name: '',
+    comment: '',
+    like: 0
+  })
 
-  const onClickComment = () => {
-    props.submitComment({ comment })
-  }
+  console.log(comment)
 
   return (
     <div className="reviewComment">
@@ -14,15 +18,15 @@ const Comment = (props) => {
         type="text"
         name="name"
         placeholder="Name"
-        // onChange={() => setComment()}
+        onChange={(e) => setComment({ ...comment, name: e.target.value })}
       />
       <input
         type="text"
         name="comment"
         placeholder="Comment Here"
-        // onChange={() => setComment()}
+        onChange={(e) => setComment({ ...comment, comment: e.target.value })}
       />
-      <button onClick={onClickComment}>Add</button>
+      <button onClick={() => props.onSubmit(comment)}>Add</button>
     </div>
   )
 }
