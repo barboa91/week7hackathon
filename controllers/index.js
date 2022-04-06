@@ -55,10 +55,32 @@ const getComments = async (req, res) => {
   }
 }
 
+const addComment = async (req, res) =>{
+    console.log(req.body)
+
+    const { id } = req.params
+    try{
+        console.log(req.body)
+        const comment  = await new Comment(req.body)
+        await comment.save()
+
+        const post = await Post.findById(id)
+        post.comments.push(comment._id)
+        await post.save()
+
+        return res.status(201).json({
+            comment
+        });
+    } catch(error){
+        return res.status(500).json({error:error.message})
+    }
+}
+
 module.exports = {
   getPostById,
   getPosts,
   getLocations,
   getComments,
-  getCommentById
+  getCommentById,
+  addComment
 }
