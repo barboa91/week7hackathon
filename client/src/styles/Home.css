@@ -53,3 +53,10 @@
   
   align-items: center;
 }
+
+.mainContent {
+  width: 60%;
+  height: 300px;
+  margin: 20px auto 0;
+  border: black 1px solid;
+}
